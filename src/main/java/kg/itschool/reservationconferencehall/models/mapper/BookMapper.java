@@ -1,4 +1,5 @@
-package kg.itschool.reservationconferencehall.mappers;
+package kg.itschool.reservationconferencehall.models.mapper;
+
 
 import kg.itschool.reservationconferencehall.models.dto.BookDto;
 import kg.itschool.reservationconferencehall.models.entity.Book;
@@ -9,13 +10,14 @@ import java.util.List;
 
 @Mapper
 public interface BookMapper {
-
     BookMapper INSTANCE = Mappers.getMapper(BookMapper.class);
+
     BookDto bookToDto(Book book);
 
     Book bookFromDto(BookDto bookDto);
 
-    List<BookDto> bookToDto(List<Book> books);
+    List<BookDto> booksToDto(List<Book> books);
 
-    List<Book> bookFromDto(List<BookDto> bookDtos);
+    List<Book> booksFromDto(List<BookDto> booksDtos);
+
 }

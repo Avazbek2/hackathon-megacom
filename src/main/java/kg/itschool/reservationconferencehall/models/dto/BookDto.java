@@ -1,40 +1,27 @@
 package kg.itschool.reservationconferencehall.models.dto;
 
-import kg.itschool.reservationconferencehall.models.entity.ConfRoom;
-import kg.itschool.reservationconferencehall.models.entity.Department;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.experimental.FieldDefaults;
-
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.time.LocalTime;
-
+import java.util.Date;
 
 @Data
 @Builder
-
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookDto implements Serializable {
+    private  Long id;
+    private  ConfRoomDto confRoom;
+    private  LocalTime start_time;
+    private  LocalTime end_time;
+    private  Date date;
+    private  String fullName;
+    private  DepartmentDto department;
+    private  Boolean isActive;
 
 
-    Long id;
-
-    ConfRoom confRoom;
-
-    LocalTime start_time;
-
-    LocalTime end_time;
-
-    Date date;
-
-    String fullName;
-
-    Department department;
-
-    Boolean isActive;
 }
-

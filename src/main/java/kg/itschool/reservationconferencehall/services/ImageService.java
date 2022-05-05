@@ -1,6 +1,5 @@
 package kg.itschool.reservationconferencehall.services;
 
-import kg.itschool.reservationconferencehall.models.dto.BookDto;
 import kg.itschool.reservationconferencehall.models.dto.ImageDto;
 
 import java.util.List;

@@ -1,7 +1,6 @@
 package kg.itschool.reservationconferencehall.controllers;
 
 
-import kg.itschool.reservationconferencehall.models.dto.BookDto;
 import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
 import kg.itschool.reservationconferencehall.services.ConfRoomService;
 import lombok.AccessLevel;

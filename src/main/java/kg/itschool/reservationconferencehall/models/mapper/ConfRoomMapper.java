@@ -1,4 +1,5 @@
-package kg.itschool.reservationconferencehall.mappers;
+package kg.itschool.reservationconferencehall.models.mapper;
+
 
 import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
 import kg.itschool.reservationconferencehall.models.entity.ConfRoom;
@@ -17,6 +18,6 @@ public interface ConfRoomMapper {
 
     List<ConfRoomDto> confRoomsToDto(List<ConfRoom> confRooms);
 
-    List<ConfRoom> confRoomFromDto(List<ConfRoomDto> confRoomDto);
+    List<ConfRoom> confRoomsFromDto(List<ConfRoomDto> confRoomsDtos);
 
 }

@@ -1,7 +1,7 @@
 package kg.itschool.reservationconferencehall.services.Impl;
 
-import kg.itschool.reservationconferencehall.mappers.ConfRoomMapper;
 import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
+import kg.itschool.reservationconferencehall.models.mapper.ConfRoomMapper;
 import kg.itschool.reservationconferencehall.models.entity.ConfRoom;
 import kg.itschool.reservationconferencehall.repository.ConfRoomRepository;
 import kg.itschool.reservationconferencehall.services.ConfRoomService;
@@ -9,7 +9,6 @@ import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +21,7 @@ public class ConfRoomServiceImpl implements ConfRoomService {
 
 
    @NonNull ConfRoomRepository confRoomRepository;
-    @NonNull  ConfRoomMapper confRoommapper;
+    ConfRoomMapper confRoommapper = ConfRoomMapper.INSTANCE;
 
 
 

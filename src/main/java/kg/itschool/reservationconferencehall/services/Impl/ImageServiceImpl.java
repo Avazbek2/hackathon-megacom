@@ -1,7 +1,7 @@
 package kg.itschool.reservationconferencehall.services.Impl;
 
-import kg.itschool.reservationconferencehall.mappers.ImageMapper;
 import kg.itschool.reservationconferencehall.models.dto.ImageDto;
+import kg.itschool.reservationconferencehall.models.mapper.ImageMapper;
 import kg.itschool.reservationconferencehall.models.entity.Image;
 import kg.itschool.reservationconferencehall.repository.ImageRepository;
 import kg.itschool.reservationconferencehall.services.ImageService;
@@ -19,7 +19,7 @@ public class ImageServiceImpl implements ImageService {
 
 
 
-    @NonNull ImageMapper imageMapper;
+    ImageMapper imageMapper = ImageMapper.INSTANCE;
     @NonNull ImageRepository imageRepository;
 
 

@@ -1,5 +1,4 @@
-package kg.itschool.reservationconferencehall.mappers;
-
+package kg.itschool.reservationconferencehall.models.mapper;
 
 import kg.itschool.reservationconferencehall.models.dto.ImageDto;
 import kg.itschool.reservationconferencehall.models.entity.Image;
@@ -14,9 +13,10 @@ public interface ImageMapper {
 
     ImageDto imageToDto(Image image);
 
-    Image imageFromDto(ImageDto imageDto);
+    Image imageFromDto(ImageDto imageDto0);
 
-    List<ImageDto> imageToDto(List<Image> images);
+    List<Image> imagesFromDto(List<ImageDto> imagesDto);
 
-    List<Image> imagerFromDto(List<ImageDto> imageDtos);
+    List<ImageDto> imagesToDto(List<Image> images);
+
 }

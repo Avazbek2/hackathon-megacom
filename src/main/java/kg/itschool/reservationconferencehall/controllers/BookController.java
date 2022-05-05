@@ -25,13 +25,12 @@ public class BookController {
     @NonNull ConfRoomService confRoomService;
 
     @PostMapping("/save")
-    public ResponseEntity save(@RequestBody BookDto bookDto){
-         BookSaveResponse savedBook = bookService.save(bookDto);
-
-        return ResponseEntity.
-                status(HttpStatus.OK)
-                .body(savedBook);
-    }
+   public ResponseEntity save(@RequestBody BookDto bookDto){
+        BookSaveResponse savedBook = bookService.save(bookDto);
+       return ResponseEntity.
+               status(HttpStatus.OK)
+               .body(savedBook);
+   }
 
     @GetMapping("/getById")
     public BookDto findById(@RequestParam Long id){

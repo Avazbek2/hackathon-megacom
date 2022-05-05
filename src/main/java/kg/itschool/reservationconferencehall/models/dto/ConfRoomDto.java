@@ -1,35 +1,24 @@
 package kg.itschool.reservationconferencehall.models.dto;
 
-
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.experimental.FieldDefaults;
+import lombok.NoArgsConstructor;
 
+import javax.annotation.security.DenyAll;
 import java.io.Serializable;
-
 
 @Data
 @Builder
-
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class ConfRoomDto implements Serializable {
-
-    Long id;
-
-    String name;
-
-    Integer capacity;
-
-    Boolean isActive;
-
-    String description;
-
-    Boolean project;
-
-    Boolean aircondit;
-
-    Boolean desk;
+    private  Long id;
+    private  String name;
+    private  Integer capacity;
+    private  Boolean isActive;
+    private  String description;
+    private  Boolean project;
+    private  Boolean airconditioner;
+    private  Boolean desk;
 }
-

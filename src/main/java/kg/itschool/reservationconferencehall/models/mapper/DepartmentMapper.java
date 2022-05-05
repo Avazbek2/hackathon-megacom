@@ -1,4 +1,4 @@
-package kg.itschool.reservationconferencehall.mappers;
+package kg.itschool.reservationconferencehall.models.mapper;
 
 import kg.itschool.reservationconferencehall.models.dto.DepartmentDto;
 import kg.itschool.reservationconferencehall.models.entity.Department;
@@ -9,14 +9,16 @@ import java.util.List;
 
 @Mapper
 public interface DepartmentMapper {
-
     DepartmentMapper INSTANCE = Mappers.getMapper(DepartmentMapper.class);
 
     DepartmentDto departmentToDto(Department department);
 
     Department departmentFromDto(DepartmentDto departmentDto);
 
-    List<DepartmentDto> departmentToDto(List<Department> departments);
+    List<Department> ListDepartmentsFromDto(List<DepartmentDto> ListDepartmentsDto);
 
-    List<Department> departmentFromDto(List<DepartmentDto> departmentDtos);
+    List<DepartmentDto>ListDepartmentsToDto(List<Department> ListDepartments);
+
+
+
 }

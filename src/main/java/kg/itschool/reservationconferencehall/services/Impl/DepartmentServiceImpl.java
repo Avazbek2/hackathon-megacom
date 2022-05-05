@@ -1,7 +1,7 @@
 package kg.itschool.reservationconferencehall.services.Impl;
 
-import kg.itschool.reservationconferencehall.mappers.DepartmentMapper;
 import kg.itschool.reservationconferencehall.models.dto.DepartmentDto;
+import kg.itschool.reservationconferencehall.models.mapper.DepartmentMapper;
 import kg.itschool.reservationconferencehall.models.entity.Department;
 import kg.itschool.reservationconferencehall.repository.DepartmentRepository;
 import kg.itschool.reservationconferencehall.services.DepartmentService;
@@ -9,7 +9,6 @@ import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 
    @NonNull DepartmentRepository departmentRepository;
-    @NonNull  DepartmentMapper departmentMapper;
+   DepartmentMapper departmentMapper = DepartmentMapper.INSTANCE;
 
 
 
@@ -69,6 +68,6 @@ public class DepartmentServiceImpl implements DepartmentService {
        List<Department>  departments = departmentRepository.findAll();
 
 
-       return departmentMapper.departmentToDto(departments);
+       return departmentMapper.ListDepartmentsToDto(departments);
     }
 }
