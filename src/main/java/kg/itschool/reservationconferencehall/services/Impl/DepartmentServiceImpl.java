@@ -29,17 +29,17 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public DepartmentDto save(DepartmentDto departmentDto) {
 
-        Department department = departmentMapper.departmentFromDto(departmentDto);
+        Department department = departmentMapper.toEntity(departmentDto);
         department.setIsActive(true);
 
         Department savedDepartment = departmentRepository.save(department);
 
-        return departmentMapper.departmentToDto(department);
+        return departmentMapper.toDto(department);
     }
 
     @Override
     public DepartmentDto delete(DepartmentDto departmentDto) {
-        Department department = departmentMapper.departmentFromDto(findById(departmentDto.getId()));
+        Department department = departmentMapper.toEntity(findById(departmentDto.getId()));
 
         department.setIsActive(false);
 
@@ -54,7 +54,7 @@ public class DepartmentServiceImpl implements DepartmentService {
          Department department = departmentRepository.findById(id).orElseThrow(
                  () -> new RuntimeException("Not found Department with " + id + " id"));
 
-        return departmentMapper.departmentToDto(department);
+        return departmentMapper.toDto(department);
     }
 
     @Override
@@ -68,6 +68,6 @@ public class DepartmentServiceImpl implements DepartmentService {
        List<Department>  departments = departmentRepository.findAll();
 
 
-       return departmentMapper.ListDepartmentsToDto(departments);
+       return departmentMapper.toDtoList(departments);
     }
 }

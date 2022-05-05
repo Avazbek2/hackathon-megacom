@@ -26,21 +26,21 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public ImageDto save(ImageDto imageDto) {
-        Image image = imageMapper.imageFromDto(imageDto);
+        Image image = imageMapper.toEntity(imageDto);
 
         image.setIsActive(true);
 
         imageRepository.save(image);
 
-        return imageMapper.imageToDto(image);
+        return imageMapper.toDto(image);
     }
 
     @Override
     public ImageDto delete(ImageDto imageDto) {
-        Image image = imageMapper.imageFromDto(findById(imageDto.getId()));
+        Image image = imageMapper.toEntity(findById(imageDto.getId()));
         image.setIsActive(false);
 
-        return imageMapper.imageToDto(image);
+        return imageMapper.toDto(image);
 
     }
 
@@ -48,15 +48,15 @@ public class ImageServiceImpl implements ImageService {
     public ImageDto findById(Long id) {
         Image image = imageRepository.findById(id).orElseThrow(() -> new RuntimeException("Not Found Image with " + id + " id"));
 
-        return imageMapper.imageToDto(image);
+        return imageMapper.toDto(image);
     }
 
     @Override
     public ImageDto update(ImageDto imageDto) {
-        Image image = imageMapper.imageFromDto(findById(imageDto.getId()));
+        Image image = imageMapper.toEntity(findById(imageDto.getId()));
         image.setIsActive(false);
 
-        return imageMapper.imageToDto(image);
+        return imageMapper.toDto(image);
     }
 
     @Override

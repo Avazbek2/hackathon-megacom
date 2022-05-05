@@ -9,15 +9,11 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface BookMapper {
+public interface BookMapper extends BaseMapper<Book , BookDto>{
     BookMapper INSTANCE = Mappers.getMapper(BookMapper.class);
 
-    BookDto bookToDto(Book book);
 
-    Book bookFromDto(BookDto bookDto);
 
-    List<BookDto> booksToDto(List<Book> books);
 
-    List<Book> booksFromDto(List<BookDto> booksDtos);
 
 }

@@ -2,6 +2,7 @@ package kg.itschool.reservationconferencehall.controllers;
 
 
 import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
+import kg.itschool.reservationconferencehall.models.requests.CreateConfRoomRequest;
 import kg.itschool.reservationconferencehall.services.ConfRoomService;
 import lombok.AccessLevel;
 import lombok.NonNull;
@@ -19,6 +20,16 @@ public class ConfRoomController {
 
     @NonNull ConfRoomService confRoomService;
 
+    @PostMapping("/create")
+    public ResponseEntity create(@RequestBody CreateConfRoomRequest request){
+
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(confRoomService.create(request));
+
+    }
+
     @PostMapping("/save")
     public ResponseEntity save(@RequestBody ConfRoomDto confRoomDto){
          ConfRoomDto savedBook = confRoomService.save(confRoomDto);
@@ -26,6 +37,13 @@ public class ConfRoomController {
         return ResponseEntity.
                 status(HttpStatus.OK)
                 .body(savedBook);
+    }
+
+    @GetMapping("/delete")
+    public ResponseEntity delete(@RequestParam Long id){
+        return  ResponseEntity
+                .status(HttpStatus.OK)
+                .body(confRoomService.delete(id));
     }
 
     @GetMapping("/getById")

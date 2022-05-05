@@ -5,11 +5,12 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 
-@Getter
 @Setter
+@Getter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "tb_confroom")
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -26,7 +27,7 @@ public class ConfRoom {
     @Column(name = "capacity" , nullable = false)
     Integer capacity;
 
-    @Column(name = "isActive"  )
+    @Column(name = "is_active"  )
     Boolean isActive;
 
     @Column(name = "description" , nullable = false , length = 1000)

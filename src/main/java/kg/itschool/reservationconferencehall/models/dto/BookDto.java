@@ -1,26 +1,37 @@
 package kg.itschool.reservationconferencehall.models.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+
+@Getter
+@Setter
+@ToString
+
 public class BookDto implements Serializable {
     private  Long id;
+
     private  ConfRoomDto confRoom;
-    private  LocalTime start_time;
-    private  LocalTime end_time;
-    private  Date date;
+
+    @DateTimeFormat(pattern = "HH:mm" )
+    private  LocalTime startTime;
+
+    @DateTimeFormat(pattern = "HH:mm" )
+    private  LocalTime endTime;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate date;
+
     private  String fullName;
+
     private  DepartmentDto department;
+
     private  Boolean isActive;
 
 

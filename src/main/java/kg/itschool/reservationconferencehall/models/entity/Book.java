@@ -5,26 +5,28 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
-@Getter
 @Setter
+@Getter
 @ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "book")
+@Table(name = "tb_book")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Book {
 
 
     @Id
-    @Column(name = "id")
+    @Column(name = "id" , insertable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @ManyToOne
-    @JoinColumn(name = "confroom_id" ,referencedColumnName = "id")
+    @JoinColumn(name = "confroom_id" ,referencedColumnName = "id"  )
     ConfRoom confRoom;
 
     @Column(name = "start_time" , nullable = false)
@@ -33,14 +35,14 @@ public class Book {
     @Column(name = "end_time" , nullable = false)
     LocalTime end_time;
 
-    @Column(name = "date" , nullable = false)
-    Date date;
+    @Column(name = "date" , nullable = false )
+    LocalDate date;
 
     @Column(name = "full_name" , nullable = false)
     String fullName;
 
     @ManyToOne
-    @JoinColumn(name = "department_id" , referencedColumnName = "id")
+    @JoinColumn(name = "department_id" , referencedColumnName = "id" )
     Department department;
 
 

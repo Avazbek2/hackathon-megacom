@@ -3,28 +3,27 @@ package kg.itschool.reservationconferencehall.models.entity;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Getter
 @Setter
+@Getter
 @ToString
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "department")
+@Table(name = "tb_department")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Department {
 
     @Id
     @Column(name = "id" )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @Column(name = "name" ,  nullable = false  )
     String name;
 
-    @Column(name = "isActive")
+    @Column(name = "is_active")
     Boolean isActive;
 }

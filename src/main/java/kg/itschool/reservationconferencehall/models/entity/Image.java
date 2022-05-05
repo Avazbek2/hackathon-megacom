@@ -6,17 +6,19 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 import java.util.function.LongToIntFunction;
 
-@Getter
 @Setter
+@Getter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "image")
+@Table(name = "tb_image")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Image {
 
     @Id
+    @Column(name = "id" )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @Column(name = "link" , nullable = false)

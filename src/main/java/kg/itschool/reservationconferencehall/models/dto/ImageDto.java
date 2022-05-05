@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class ImageDto implements Serializable {
     private  Long id;
     private  String link;
