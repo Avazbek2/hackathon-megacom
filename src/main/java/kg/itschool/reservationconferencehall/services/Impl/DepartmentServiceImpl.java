@@ -22,7 +22,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 
    @NonNull DepartmentRepository departmentRepository;
-   DepartmentMapper departmentMapper = DepartmentMapper.INSTANCE;
+   DepartmentMapper departmentMapper = DepartmentMapper.INSTANCE ;
 
 
 

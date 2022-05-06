@@ -1,11 +1,8 @@
 package kg.itschool.reservationconferencehall.models.mapper;
 
-import org.mapstruct.Mapping;
-
 import java.util.List;
 
 public interface BaseMapper<ENTITY, DTO> {
-
     ENTITY toEntity(DTO dto);
     DTO toDto(ENTITY entity);
     List<ENTITY> toEntityList(List<DTO> dtoList);

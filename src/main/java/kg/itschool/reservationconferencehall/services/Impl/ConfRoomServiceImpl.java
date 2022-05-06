@@ -10,7 +10,6 @@ import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,7 +23,7 @@ public class ConfRoomServiceImpl implements ConfRoomService {
 
    @NonNull ConfRoomRepository confRoomRepository;
 
-    final ConfRoomMapper confRoommapper = ConfRoomMapper.INSTANCE;
+    ConfRoomMapper confRoommapper = ConfRoomMapper.INSTANCE;
 
 
     @Override
@@ -35,8 +34,8 @@ public class ConfRoomServiceImpl implements ConfRoomService {
                                 .name(request.getName())
                                 .description(request.getDescription())
                                 .capacity(request.getCapacity())
-                                .airconditioner(request.getAirconditioner())
-                                .desk(request.getDesk())
+                                .conditioner(request.getAirconditioner())
+                                .board(request.getDesk())
                                 .project(request.getProject())
                                 .isActive(true)
                                 .build();

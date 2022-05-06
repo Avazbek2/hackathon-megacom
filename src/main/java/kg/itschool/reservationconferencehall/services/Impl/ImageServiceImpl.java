@@ -19,7 +19,7 @@ public class ImageServiceImpl implements ImageService {
 
 
 
-    ImageMapper imageMapper = ImageMapper.INSTANCE;
+    ImageMapper imageMapper  = ImageMapper.INSTANCE;
     @NonNull ImageRepository imageRepository;
 
 
@@ -27,6 +27,7 @@ public class ImageServiceImpl implements ImageService {
     @Override
     public ImageDto save(ImageDto imageDto) {
         Image image = imageMapper.toEntity(imageDto);
+
 
         image.setIsActive(true);
 

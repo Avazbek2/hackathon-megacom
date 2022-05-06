@@ -33,12 +33,12 @@ public class ConfRoom {
     @Column(name = "description" , nullable = false , length = 1000)
     String description;
 
-    @Column(name = "project" , nullable = false)
+    @Column(name = "projector" , nullable = false)
     Boolean project;
 
-    @Column(name = "aircondit" , nullable = false)
-    Boolean airconditioner;
+    @Column(name = "conditioner" , nullable = false)
+    Boolean conditioner;
 
-    @Column(name = "desk" , nullable = false)
-    Boolean desk;
+    @Column(name = "board" , nullable = false)
+    Boolean board;
 }

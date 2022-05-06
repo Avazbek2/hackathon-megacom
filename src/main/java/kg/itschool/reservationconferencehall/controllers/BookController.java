@@ -1,7 +1,6 @@
 package kg.itschool.reservationconferencehall.controllers;
 
 import kg.itschool.reservationconferencehall.models.dto.BookDto;
-import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
 import kg.itschool.reservationconferencehall.respons.BookSaveResponse;
 import kg.itschool.reservationconferencehall.services.BookService;
 import kg.itschool.reservationconferencehall.services.ConfRoomService;
@@ -38,8 +37,8 @@ public class BookController {
     }
     @GetMapping("/findAllByConfRoom")
     public List<BookDto> findAllByConfRoom(@RequestParam Long confRoomDtoId){
-        ConfRoomDto confRoomDto = confRoomService.findById(confRoomDtoId);
-        return bookService.findAllByConfRoom(confRoomDto);
+
+        return bookService.findAllByConfRoomId(confRoomDtoId);
     }
 
 

@@ -1,8 +1,6 @@
 package kg.itschool.reservationconferencehall.services;
 
 import kg.itschool.reservationconferencehall.models.dto.BookDto;
-import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
-import kg.itschool.reservationconferencehall.models.requests.CreateConfRoomRequest;
 import kg.itschool.reservationconferencehall.respons.BookSaveResponse;
 
 import java.util.List;
@@ -19,6 +17,6 @@ public interface BookService {
 
     BookDto update(BookDto bookDto);
 
-    List<BookDto> findAllByConfRoom(ConfRoomDto confRoomDto);
+    List<BookDto> findAllByConfRoomId(Long id);
 
 }

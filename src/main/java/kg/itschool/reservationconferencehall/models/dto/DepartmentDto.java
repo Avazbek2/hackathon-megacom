@@ -1,16 +1,19 @@
 package kg.itschool.reservationconferencehall.models.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
 
-@Data
-
+@Getter
+@Setter
+@ToString
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class DepartmentDto implements Serializable {
-    private  Long id;
-    private  String name;
-    private  Boolean isActive;
+    Long id;
+    String name;
+    Boolean isActive;
 }

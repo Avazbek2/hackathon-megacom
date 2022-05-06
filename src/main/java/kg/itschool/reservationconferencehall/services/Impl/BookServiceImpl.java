@@ -1,7 +1,6 @@
 package kg.itschool.reservationconferencehall.services.Impl;
 
 import kg.itschool.reservationconferencehall.models.dto.BookDto;
-import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
 import kg.itschool.reservationconferencehall.models.entity.ConfRoom;
 import kg.itschool.reservationconferencehall.models.entity.Department;
 import kg.itschool.reservationconferencehall.models.mapper.BookMapper;
@@ -19,7 +18,7 @@ import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.aspectj.lang.annotation.DeclareAnnotation;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,8 +34,9 @@ public class BookServiceImpl implements BookService {
    @NonNull DepartmentService departmentService;
 
 
+
    BookMapper bookMapper = BookMapper.INSTANCE;
-   ConfRoomMapper confRoomMapper= ConfRoomMapper.INSTANCE;
+   ConfRoomMapper confRoomMapper = ConfRoomMapper.INSTANCE;
    DepartmentMapper departmentMapper = DepartmentMapper.INSTANCE;
 
 
@@ -53,31 +53,33 @@ public class BookServiceImpl implements BookService {
            bookSaveResponse.setMessage("Room is busy");
            return bookSaveResponse;
        }
-       Book book = Book
-               .builder()
-               .id(bookDto.getId())
-               .confRoom(ConfRoom
-                       .builder()
-                       .id(bookDto.getConfRoom().getId())
-                       .name(bookDto.getConfRoom().getName())
-                       .capacity(bookDto.getConfRoom().getCapacity())
-                       .description(bookDto.getConfRoom().getDescription())
-                       .desk(bookDto.getConfRoom().getDesk())
-                       .project(bookDto.getConfRoom().getProject())
-                       .airconditioner(bookDto.getConfRoom().getAirconditioner())
-                       .build())
-               .start_time(bookDto.getStartTime())
-               .end_time(bookDto.getEndTime())
-               .date(bookDto.getDate())
-               .fullName(bookDto.getFullName())
-               .department(Department
-                       .builder()
-                       .id(bookDto.getDepartment().getId())
-                       .name(bookDto.getDepartment().getName())
-                       .isActive(bookDto.getDepartment().getIsActive())
-                       .build())
-               .isActive(true)
-               .build();
+      Book book = Book
+              .builder()
+              .id(bookDto.getId())
+              .confRoom(ConfRoom
+                      .builder()
+                      .id(bookDto.getConfRoom().getId())
+                      .name(bookDto.getConfRoom().getName())
+                      .capacity(bookDto.getConfRoom().getCapacity())
+                      .description(bookDto.getConfRoom().getDescription())
+                      .board(bookDto.getConfRoom().getBoard())
+                      .project(bookDto.getConfRoom().getProjector())
+                      .conditioner(bookDto.getConfRoom().getConditioner())
+                      .build())
+              .startTime(bookDto.getStartTime())
+              .endTime(bookDto.getEndTime())
+              .date(bookDto.getDate())
+              .fullName(bookDto.getFullName())
+              .department(Department
+                      .builder()
+                      .id(bookDto.getDepartment().getId())
+                      .name(bookDto.getDepartment().getName())
+                      .isActive(bookDto.getDepartment().getIsActive())
+                      .build())
+              .isActive(true)
+              .build();
+
+
 
        System.out.println(book);
        Book savedBook = bookRepository.save(book);
@@ -110,7 +112,7 @@ public class BookServiceImpl implements BookService {
 
         System.out.println(book);
 
-            return BookMapper.INSTANCE.toDto(book);
+            return bookMapper.toDto(book);
     }
 
     @Override
@@ -119,8 +121,12 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookDto> findAllByConfRoom(ConfRoomDto confRoomDto) {
-       List<Book> books =  bookRepository.findAllByConfRoom(confRoomMapper.toEntity(confRoomDto));
+    public List<BookDto> findAllByConfRoomId(Long id) {
+
+
+        List<Book> books =  bookRepository.findAllByConfRoomId(id);
+        System.out.println(books);
+
 
         return bookMapper.toDtoList(books);
     }

@@ -30,10 +30,10 @@ public class Book {
     ConfRoom confRoom;
 
     @Column(name = "start_time" , nullable = false)
-    LocalTime start_time;
+    LocalTime startTime;
 
     @Column(name = "end_time" , nullable = false)
-    LocalTime end_time;
+    LocalTime endTime;
 
     @Column(name = "date" , nullable = false )
     LocalDate date;

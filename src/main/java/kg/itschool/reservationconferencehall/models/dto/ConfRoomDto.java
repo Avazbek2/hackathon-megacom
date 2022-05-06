@@ -1,21 +1,37 @@
 package kg.itschool.reservationconferencehall.models.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.annotation.security.DenyAll;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
-@Data
+@Getter
+@Setter
+@ToString
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class ConfRoomDto implements Serializable {
-    private  Long   id;
-    private  String  name;
-    private  Integer capacity;
-    private  Boolean isActive;
-    private  String  description;
-    private  Boolean project;
-    private  Boolean airconditioner;
-    private  Boolean desk;
+    Long id;
+
+    String name;
+
+    Integer capacity;
+
+    Boolean isActive;
+
+    String description;
+
+    Boolean projector;
+
+    Boolean conditioner;
+
+    Boolean board;
+
+
 }
+
