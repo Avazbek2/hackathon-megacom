@@ -53,31 +53,33 @@ public class BookServiceImpl implements BookService {
            bookSaveResponse.setMessage("Room is busy");
            return bookSaveResponse;
        }
-      Book book = Book
-              .builder()
-              .id(bookDto.getId())
-              .confRoom(ConfRoom
-                      .builder()
-                      .id(bookDto.getConfRoom().getId())
-                      .name(bookDto.getConfRoom().getName())
-                      .capacity(bookDto.getConfRoom().getCapacity())
-                      .description(bookDto.getConfRoom().getDescription())
-                      .board(bookDto.getConfRoom().getBoard())
-                      .project(bookDto.getConfRoom().getProjector())
-                      .conditioner(bookDto.getConfRoom().getConditioner())
-                      .build())
-              .startTime(bookDto.getStartTime())
-              .endTime(bookDto.getEndTime())
-              .date(bookDto.getDate())
-              .fullName(bookDto.getFullName())
-              .department(Department
-                      .builder()
-                      .id(bookDto.getDepartment().getId())
-                      .name(bookDto.getDepartment().getName())
-                      .isActive(bookDto.getDepartment().getIsActive())
-                      .build())
-              .isActive(true)
-              .build();
+//      Book book = Book
+//              .builder()
+//              .id(bookDto.getId())
+//              .confRoom(ConfRoom
+//                      .builder()
+//                      .id(bookDto.getConfRoom().getId())
+//                      .name(bookDto.getConfRoom().getName())
+//                      .capacity(bookDto.getConfRoom().getCapacity())
+//                      .description(bookDto.getConfRoom().getDescription())
+//                      .board(bookDto.getConfRoom().getBoard())
+//                      .project(bookDto.getConfRoom().getProject())
+//                      .conditioner(bookDto.getConfRoom().getConditioner())
+//                      .build())
+//              .startTime(bookDto.getStartTime())
+//              .endTime(bookDto.getEndTime())
+//              .date(bookDto.getDate())
+//              .fullName(bookDto.getFullName())
+//              .department(Department
+//                      .builder()
+//                      .id(bookDto.getDepartment().getId())
+//                      .name(bookDto.getDepartment().getName())
+//                      .isActive(bookDto.getDepartment().getIsActive())
+//                      .build())
+//              .isActive(true)
+//              .build();
+
+       Book book = bookMapper.toEntity(bookDto);
 
 
 

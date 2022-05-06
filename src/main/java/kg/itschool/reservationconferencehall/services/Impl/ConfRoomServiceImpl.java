@@ -36,7 +36,7 @@ public class ConfRoomServiceImpl implements ConfRoomService {
                                 .capacity(request.getCapacity())
                                 .conditioner(request.getAirconditioner())
                                 .board(request.getDesk())
-                                .project(request.getProject())
+                                .projector(request.getProject())
                                 .isActive(true)
                                 .build();
         confRoomRepository.save(confRoom);

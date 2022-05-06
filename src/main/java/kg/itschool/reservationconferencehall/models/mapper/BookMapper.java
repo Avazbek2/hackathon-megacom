@@ -8,13 +8,13 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface BookMapper{
+public interface BookMapper extends BaseMapper<Book , BookDto>{
     BookMapper INSTANCE = Mappers.getMapper(BookMapper.class);
-
-    Book toEntity(BookDto dto);
-    BookDto toDto(Book entity);
-    List<Book> toEntityList(List<BookDto> dtoList);
-    List<BookDto> toDtoList(List<Book> entityList);
+//
+//    Book toEntity(BookDto dto);
+//    BookDto toDto(Book entity);
+//    List<Book> toEntityList(List<BookDto> dtoList);
+//    List<BookDto> toDtoList(List<Book> entityList);
 
 
 }

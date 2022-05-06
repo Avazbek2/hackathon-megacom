@@ -8,13 +8,13 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface ImageMapper{
+public interface ImageMapper extends BaseMapper<Image , ImageDto>{
 
     ImageMapper INSTANCE = Mappers.getMapper(ImageMapper.class);
 
-    Image toEntity(ImageDto dto);
-    ImageDto toDto(Image entity);
-    List<Image> toEntityList(List<ImageDto> dtoList);
-    List<ImageDto> toDtoList(List<Image> entityList);
+//    Image toEntity(ImageDto dto);
+//    ImageDto toDto(Image entity);
+//    List<Image> toEntityList(List<ImageDto> dtoList);
+//    List<ImageDto> toDtoList(List<Image> entityList);
 
 }

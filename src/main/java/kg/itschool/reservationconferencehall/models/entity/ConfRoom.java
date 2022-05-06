@@ -34,7 +34,7 @@ public class ConfRoom {
     String description;
 
     @Column(name = "projector" , nullable = false)
-    Boolean project;
+    Boolean projector;
 
     @Column(name = "conditioner" , nullable = false)
     Boolean conditioner;
