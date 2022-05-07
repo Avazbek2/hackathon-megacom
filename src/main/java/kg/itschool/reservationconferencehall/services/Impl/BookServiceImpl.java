@@ -1,8 +1,6 @@
 package kg.itschool.reservationconferencehall.services.Impl;
 
 import kg.itschool.reservationconferencehall.models.dto.BookDto;
-import kg.itschool.reservationconferencehall.models.entity.ConfRoom;
-import kg.itschool.reservationconferencehall.models.entity.Department;
 import kg.itschool.reservationconferencehall.models.mapper.BookMapper;
 import kg.itschool.reservationconferencehall.models.entity.Book;
 import kg.itschool.reservationconferencehall.models.mapper.ConfRoomMapper;
@@ -19,6 +17,8 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -123,13 +123,15 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookDto> findAllByConfRoomId(Long id) {
+    public Page<Book> findAllByConfRoomId(Long id , Pageable pageable) {
 
 
-        List<Book> books =  bookRepository.findAllByConfRoomId(id);
+
+
+        Page<Book> books =  bookRepository.findAllByConfRoomId(id , pageable);
         System.out.println(books);
 
 
-        return bookMapper.toDtoList(books);
+        return books;
     }
 }

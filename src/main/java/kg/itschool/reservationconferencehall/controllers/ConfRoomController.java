@@ -2,7 +2,7 @@ package kg.itschool.reservationconferencehall.controllers;
 
 
 import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
-import kg.itschool.reservationconferencehall.models.requests.CreateConfRoomRequest;
+
 import kg.itschool.reservationconferencehall.services.ConfRoomService;
 import lombok.AccessLevel;
 import lombok.NonNull;
@@ -20,15 +20,7 @@ public class ConfRoomController {
 
     @NonNull ConfRoomService confRoomService;
 
-    @PostMapping("/create")
-    public ResponseEntity create(@RequestBody CreateConfRoomRequest request){
 
-
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(confRoomService.create(request));
-
-    }
 
     @PostMapping("/save")
     public ResponseEntity save(@RequestBody ConfRoomDto confRoomDto){

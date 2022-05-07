@@ -1,12 +1,12 @@
 package kg.itschool.reservationconferencehall.services;
 
 import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
-import kg.itschool.reservationconferencehall.models.requests.CreateConfRoomRequest;
+import kg.itschool.reservationconferencehall.models.requests.FilterRequest;
 
 import java.util.List;
 
 public interface ConfRoomService {
-    ConfRoomDto create(CreateConfRoomRequest request);
+
 
     ConfRoomDto save(ConfRoomDto confRoomDto);
 
@@ -18,6 +18,6 @@ public interface ConfRoomService {
 
     List<ConfRoomDto> findAllConfRoom();
 
-    List<ConfRoomDto> filter(int amountPerson , boolean projector , boolean conditioner , boolean board );
+    List<ConfRoomDto> filter(FilterRequest request);
 
 }

@@ -1,6 +1,7 @@
 package kg.itschool.reservationconferencehall.controllers;
 
 import kg.itschool.reservationconferencehall.models.dto.BookDto;
+import kg.itschool.reservationconferencehall.models.entity.Book;
 import kg.itschool.reservationconferencehall.respons.BookSaveResponse;
 import kg.itschool.reservationconferencehall.services.BookService;
 import kg.itschool.reservationconferencehall.services.ConfRoomService;
@@ -8,6 +9,8 @@ import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,9 +39,9 @@ public class BookController {
         return bookService.findById(id);
     }
     @GetMapping("/findAllByConfRoom")
-    public List<BookDto> findAllByConfRoom(@RequestParam Long confRoomDtoId){
+    public Page<Book> findAllByConfRoom(@RequestParam Long confRoomDtoId , Pageable page){
 
-        return bookService.findAllByConfRoomId(confRoomDtoId);
+        return bookService.findAllByConfRoomId(confRoomDtoId , page);
     }
 
 

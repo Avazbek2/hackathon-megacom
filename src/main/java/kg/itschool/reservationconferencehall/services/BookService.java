@@ -1,9 +1,10 @@
 package kg.itschool.reservationconferencehall.services;
 
 import kg.itschool.reservationconferencehall.models.dto.BookDto;
+import kg.itschool.reservationconferencehall.models.entity.Book;
 import kg.itschool.reservationconferencehall.respons.BookSaveResponse;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface BookService {
 
@@ -17,6 +18,6 @@ public interface BookService {
 
     BookDto update(BookDto bookDto);
 
-    List<BookDto> findAllByConfRoomId(Long id);
+    Page<Book> findAllByConfRoomId(Long id , Pageable pageable);
 
 }

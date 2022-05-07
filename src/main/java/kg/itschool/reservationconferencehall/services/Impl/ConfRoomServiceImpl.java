@@ -3,7 +3,7 @@ package kg.itschool.reservationconferencehall.services.Impl;
 import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
 import kg.itschool.reservationconferencehall.models.mapper.ConfRoomMapper;
 import kg.itschool.reservationconferencehall.models.entity.ConfRoom;
-import kg.itschool.reservationconferencehall.models.requests.CreateConfRoomRequest;
+import kg.itschool.reservationconferencehall.models.requests.FilterRequest;
 import kg.itschool.reservationconferencehall.repository.ConfRoomRepository;
 import kg.itschool.reservationconferencehall.services.ConfRoomService;
 import lombok.AccessLevel;
@@ -26,25 +26,7 @@ public class ConfRoomServiceImpl implements ConfRoomService {
     ConfRoomMapper confRoommapper = ConfRoomMapper.INSTANCE;
 
 
-    @Override
-    public ConfRoomDto create(CreateConfRoomRequest request) {
 
-        ConfRoom confRoom =ConfRoom
-                                .builder()
-                                .name(request.getName())
-                                .description(request.getDescription())
-                                .capacity(request.getCapacity())
-                                .conditioner(request.getAirconditioner())
-                                .board(request.getDesk())
-                                .projector(request.getProject())
-                                .isActive(true)
-                                .build();
-        confRoomRepository.save(confRoom);
-        System.out.println(confRoom);
-
-        return confRoommapper.toDto(confRoom);
-
-    }
 
     @Override
     public ConfRoomDto save(ConfRoomDto confRoomDto) {
@@ -72,6 +54,7 @@ public class ConfRoomServiceImpl implements ConfRoomService {
         ConfRoom confRoom = confRoomRepository.findById(id).orElseThrow(() -> new RuntimeException("Not found Conf Room with " + id + " id"));
 
 
+
         return confRoommapper.toDto(confRoom);
     }
 
@@ -89,7 +72,17 @@ public class ConfRoomServiceImpl implements ConfRoomService {
     }
 
     @Override
-    public List<ConfRoomDto> filter(int amountPerson, boolean projector, boolean conditioner, boolean board) {
-        return null;
+    public List<ConfRoomDto> filter(FilterRequest request) {
+        return confRoommapper.toDtoList(
+                confRoomRepository
+                        .findAllByCapacityAndBoardAndConditionerAndProjector
+                                (request.getAmountPerson() ,
+                                        request.getBoard() ,
+                                        request.getConditioner() ,
+                                        request.getProjector()));
+
+
     }
+
+
 }
