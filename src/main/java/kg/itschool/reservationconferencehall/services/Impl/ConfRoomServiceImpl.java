@@ -32,11 +32,11 @@ public class ConfRoomServiceImpl implements ConfRoomService {
     public ConfRoomDto save(ConfRoomDto confRoomDto) {
         ConfRoom confRoom = confRoommapper.toEntity(confRoomDto);
         confRoom.setIsActive(true);
-        confRoomRepository.save(confRoom);
+        ConfRoom savedConfRoom = confRoomRepository.save(confRoom);
 
 
 
-        return confRoommapper.toDto(confRoom);
+        return confRoommapper.toDto(savedConfRoom);
     }
 
     @Override
