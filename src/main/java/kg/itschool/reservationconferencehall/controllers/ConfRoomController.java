@@ -3,6 +3,7 @@ package kg.itschool.reservationconferencehall.controllers;
 
 import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
 
+import kg.itschool.reservationconferencehall.models.requests.CreateConfRoomRequest;
 import kg.itschool.reservationconferencehall.services.ConfRoomService;
 import lombok.AccessLevel;
 import lombok.NonNull;
@@ -23,8 +24,8 @@ public class ConfRoomController {
 
 
     @PostMapping("/save")
-    public ResponseEntity save(@RequestBody ConfRoomDto confRoomDto){
-         ConfRoomDto savedBook = confRoomService.save(confRoomDto);
+    public ResponseEntity save(@RequestBody CreateConfRoomRequest request){
+         ConfRoomDto savedBook = confRoomService.save(request);
 
         return ResponseEntity.
                 status(HttpStatus.OK)

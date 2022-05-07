@@ -39,9 +39,9 @@ public class BookController {
         return bookService.findById(id);
     }
     @GetMapping("/findAllByConfRoom")
-    public Page<Book> findAllByConfRoom(@RequestParam Long confRoomDtoId , Pageable page){
+    public List<BookDto> findAllByConfRoom(@RequestParam Long confRoomDtoId ){
 
-        return bookService.findAllByConfRoomId(confRoomDtoId , page);
+        return bookService.findAllByConfRoomId(confRoomDtoId);
     }
 
 

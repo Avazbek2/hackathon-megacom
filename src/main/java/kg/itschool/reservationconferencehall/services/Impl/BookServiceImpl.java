@@ -17,8 +17,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -123,15 +122,16 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Page<Book> findAllByConfRoomId(Long id , Pageable pageable) {
+
+    public List<BookDto> findAllByConfRoomId(Long id ) {
 
 
 
 
-        Page<Book> books =  bookRepository.findAllByConfRoomId(id , pageable);
+        List<Book> books =  bookRepository.findAllByConfRoomId(id);
         System.out.println(books);
 
 
-        return books;
+        return bookMapper.toDtoList(books);
     }
 }

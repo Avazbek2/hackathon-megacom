@@ -6,6 +6,8 @@ import kg.itschool.reservationconferencehall.respons.BookSaveResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface BookService {
 
 
@@ -18,6 +20,6 @@ public interface BookService {
 
     BookDto update(BookDto bookDto);
 
-    Page<Book> findAllByConfRoomId(Long id , Pageable pageable);
+    List<BookDto> findAllByConfRoomId(Long id );
 
 }
