@@ -8,7 +8,7 @@ public class CreateConfRoomRequest {
 
     Integer capacity;
 
-
+    //Boolean isActive;
 
     String description;
 
