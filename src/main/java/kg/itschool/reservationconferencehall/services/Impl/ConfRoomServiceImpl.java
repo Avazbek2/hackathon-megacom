@@ -3,6 +3,7 @@ package kg.itschool.reservationconferencehall.services.Impl;
 import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
 import kg.itschool.reservationconferencehall.models.mapper.ConfRoomMapper;
 import kg.itschool.reservationconferencehall.models.entity.ConfRoom;
+import kg.itschool.reservationconferencehall.models.requests.CreateConfRoomRequest;
 import kg.itschool.reservationconferencehall.models.requests.FilterRequest;
 import kg.itschool.reservationconferencehall.repository.ConfRoomRepository;
 import kg.itschool.reservationconferencehall.services.ConfRoomService;
@@ -29,9 +30,18 @@ public class ConfRoomServiceImpl implements ConfRoomService {
 
 
     @Override
-    public ConfRoomDto save(ConfRoomDto confRoomDto) {
-        ConfRoom confRoom = confRoommapper.toEntity(confRoomDto);
+    public ConfRoomDto save(CreateConfRoomRequest request) {
+        ConfRoom confRoom = ConfRoom
+                .builder()
+                .name(request.getName())
+                .description(request.getDescription())
+                .capacity(request.getCapacity())
+                .conditioner(request.getConditioner())
+                .board(request.getBoard())
+                .projector(request.getProjector())
+                .build();
         confRoom.setIsActive(true);
+
         ConfRoom savedConfRoom = confRoomRepository.save(confRoom);
 
 
