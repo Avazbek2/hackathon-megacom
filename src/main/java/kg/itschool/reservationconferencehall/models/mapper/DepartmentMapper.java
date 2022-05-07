@@ -12,10 +12,10 @@ import java.util.List;
 public interface DepartmentMapper extends BaseMapper<Department , DepartmentDto>{
 
     DepartmentMapper INSTANCE = Mappers.getMapper(DepartmentMapper.class);
-//
-//    Department toEntity(DepartmentDto dto);
-//    DepartmentDto toDto(Department entity);
-//    List<Department> toEntityList(List<DepartmentDto> dtoList);
-//    List<DepartmentDto> toDtoList(List<Department> entityList);
+
+    Department toEntity(DepartmentDto dto);
+    DepartmentDto toDto(Department entity);
+    List<Department> toEntityList(List<DepartmentDto> dtoList);
+    List<DepartmentDto> toDtoList(List<Department> entityList);
 
 }

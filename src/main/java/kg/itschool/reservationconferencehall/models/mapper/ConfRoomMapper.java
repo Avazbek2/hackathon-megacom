@@ -12,10 +12,10 @@ import java.util.List;
 public interface ConfRoomMapper extends BaseMapper<ConfRoom , ConfRoomDto>{
     ConfRoomMapper INSTANCE = Mappers.getMapper(ConfRoomMapper.class);
 
-//    ConfRoom toEntity(ConfRoomDto dto);
-//    ConfRoomDto toDto(ConfRoom entity);
-//    List<ConfRoom> toEntityList(List<ConfRoomDto> dtoList);
-//    List<ConfRoomDto> toDtoList(List<ConfRoom> entityList);
+    ConfRoom toEntity(ConfRoomDto dto);
+    ConfRoomDto toDto(ConfRoom entity);
+    List<ConfRoom> toEntityList(List<ConfRoomDto> dtoList);
+    List<ConfRoomDto> toDtoList(List<ConfRoom> entityList);
 
 
 
