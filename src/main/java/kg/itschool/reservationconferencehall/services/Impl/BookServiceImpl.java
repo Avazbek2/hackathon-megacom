@@ -1,6 +1,8 @@
 package kg.itschool.reservationconferencehall.services.Impl;
 
 import kg.itschool.reservationconferencehall.models.dto.BookDto;
+import kg.itschool.reservationconferencehall.models.entity.ConfRoom;
+import kg.itschool.reservationconferencehall.models.entity.Department;
 import kg.itschool.reservationconferencehall.models.mapper.BookMapper;
 import kg.itschool.reservationconferencehall.models.entity.Book;
 import kg.itschool.reservationconferencehall.models.mapper.ConfRoomMapper;
@@ -42,9 +44,9 @@ public class BookServiceImpl implements BookService {
 
    @Override
    public BookSaveResponse save(BookDto bookDto) {
-       System.out.println(bookDto);
+
        BookSaveResponse bookSaveResponse = new BookSaveResponse();
-       System.out.println(bookDto);
+
        List<Book> isExists = bookRepository.findAllByConfRoomIdAndDateAndStart_timeAndEnd_time(bookDto.getConfRoom().getId(), bookDto.getDate(), bookDto.getStartTime(), bookDto.getEndTime());
        System.out.println( "isExists" + isExists );
        if (!isExists.isEmpty()) {
@@ -52,31 +54,31 @@ public class BookServiceImpl implements BookService {
            bookSaveResponse.setMessage("Room is busy");
            return bookSaveResponse;
        }
-//      Book book = Book
-//              .builder()
-//              .id(bookDto.getId())
-//              .confRoom(ConfRoom
-//                      .builder()
-//                      .id(bookDto.getConfRoom().getId())
-//                      .name(bookDto.getConfRoom().getName())
-//                      .capacity(bookDto.getConfRoom().getCapacity())
-//                      .description(bookDto.getConfRoom().getDescription())
-//                      .board(bookDto.getConfRoom().getBoard())
-//                      .project(bookDto.getConfRoom().getProject())
-//                      .conditioner(bookDto.getConfRoom().getConditioner())
-//                      .build())
-//              .startTime(bookDto.getStartTime())
-//              .endTime(bookDto.getEndTime())
-//              .date(bookDto.getDate())
-//              .fullName(bookDto.getFullName())
-//              .department(Department
-//                      .builder()
-//                      .id(bookDto.getDepartment().getId())
-//                      .name(bookDto.getDepartment().getName())
-//                      .isActive(bookDto.getDepartment().getIsActive())
-//                      .build())
-//              .isActive(true)
-//              .build();
+//     Book book = Book
+//             .builder()
+//             .id(bookDto.getId())
+//             .confRoom(ConfRoom
+//                     .builder()
+//                     .id(bookDto.getConfRoom().getId())
+//                     .name(bookDto.getConfRoom().getName())
+//                     .capacity(bookDto.getConfRoom().getCapacity())
+//                     .description(bookDto.getConfRoom().getDescription())
+//                     .board(bookDto.getConfRoom().getBoard())
+//                     .projector(bookDto.getConfRoom().getProjector())
+//                     .conditioner(bookDto.getConfRoom().getConditioner())
+//                     .build())
+//             .startTime(bookDto.getStartTime())
+//             .endTime(bookDto.getEndTime())
+//             .date(bookDto.getDate())
+//             .fullName(bookDto.getFullName())
+//             .department(Department
+//                     .builder()
+//                     .id(bookDto.getDepartment().getId())
+//                     .name(bookDto.getDepartment().getName())
+//                     .isActive(bookDto.getDepartment().getIsActive())
+//                     .build())
+//             .isActive(true)
+//             .build();
 
        Book book = bookMapper.toEntity(bookDto);
 

@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface ConfRoomMapper extends BaseMapper<ConfRoom , ConfRoomDto>{
+public interface ConfRoomMapper{
     ConfRoomMapper INSTANCE = Mappers.getMapper(ConfRoomMapper.class);
 
     ConfRoom toEntity(ConfRoomDto dto);

@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface DepartmentMapper extends BaseMapper<Department , DepartmentDto>{
+public interface DepartmentMapper{
 
     DepartmentMapper INSTANCE = Mappers.getMapper(DepartmentMapper.class);
 

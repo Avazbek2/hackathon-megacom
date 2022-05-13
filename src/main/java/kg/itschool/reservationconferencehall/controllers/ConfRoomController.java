@@ -4,6 +4,7 @@ package kg.itschool.reservationconferencehall.controllers;
 import kg.itschool.reservationconferencehall.models.dto.ConfRoomDto;
 
 import kg.itschool.reservationconferencehall.models.requests.CreateConfRoomRequest;
+import kg.itschool.reservationconferencehall.models.requests.FilterRequest;
 import kg.itschool.reservationconferencehall.services.ConfRoomService;
 import lombok.AccessLevel;
 import lombok.NonNull;
@@ -58,5 +59,18 @@ public class ConfRoomController {
     }
 
 //http:/10.244.53.44/api/v1/conf-room/get-all
+
+    @GetMapping("/filtration")
+    public ResponseEntity filtration(@RequestBody FilterRequest filterRequest)
+    {
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(confRoomService
+                        .filter(filterRequest)
+                );
+
+
+    }
 
 }

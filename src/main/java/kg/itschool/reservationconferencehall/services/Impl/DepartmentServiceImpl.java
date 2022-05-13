@@ -34,7 +34,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         Department savedDepartment = departmentRepository.save(department);
 
-        return departmentMapper.toDto(department);
+        return departmentMapper.toDto(savedDepartment);
     }
 
     @Override
